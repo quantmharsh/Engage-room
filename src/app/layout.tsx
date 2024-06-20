@@ -29,11 +29,6 @@ export default function RootLayout({
         colorInputBackground:"#252a41",
         colorInputText:"#fff"
         
-
-
-
-        
-
       }
     }}>
     <html lang="en">
