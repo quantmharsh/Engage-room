@@ -6,7 +6,7 @@ import {
 	StreamVideoClient,
 	User,
 } from "@stream-io/video-react-sdk";
-import { error } from "console";
+
 import { ReactNode, useEffect, useState } from "react";
 import { tokenProvider } from "../actions/stream.actions";
 import { Loader } from "lucide-react";
