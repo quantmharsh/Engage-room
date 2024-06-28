@@ -31,7 +31,7 @@ export const StreamVideoProvider = ({ children }: { children: ReactNode }) => {
 				name: user?.username || user?.id,
 				image: user?.imageUrl,
 			},
-			//  we are etting token provider from actions folder  (it is used to verify the user logged in to the user who joins the meeting)
+			//  we are getting token provider from actions folder  (it is used to verify the user logged in to the user who joins the meeting)
 			tokenProvider: tokenProvider,
 		});
         SetVideoClient(client) 

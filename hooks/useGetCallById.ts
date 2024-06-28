@@ -20,8 +20,10 @@ export const useGetCallById=(id:string | string[])=>{
                 }
                
             })
+            //storing call detail that we got 
             if(calls.length>0)
-                {
+                {  
+                    console.log("call[0]" , calls[0])
                     setCall(calls[0]);
                 }
 

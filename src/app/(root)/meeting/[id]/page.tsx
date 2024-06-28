@@ -13,12 +13,23 @@ const Meeting = ({ params:{id} }: { params: { id: string } }) => {
   //setup the audio and video permission 
   const[isSetupComplete , setIsSetupComplete]=useState(false)
   const{call , isCallLoading} = useGetCallById(id);
+
    if(isCallLoading ||!isLoaded) return <Loader/>
+   if (!call) return (
+    <p className="text-center text-3xl font-bold text-white">
+      Call Not Found
+    </p>
+  );
+  
   return (
     <main>
       {/* call ={call} means  getting the details of the call in which we are in  */}
+      {/* StreamCall provider ensures that in which call we are */}
+      {/* it is getting call  from  useGetCalbyid  hook that we have created  */}
         <StreamCall call={call}>
+        
           <StreamTheme>
+           
             { !isSetupComplete ?<MeetingSetup/>: <MeetingRoom/>}
 
           </StreamTheme>

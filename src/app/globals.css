@@ -110,3 +110,10 @@
     width: 100%;
   }
 }
+.home-card {
+  transition: transform 0.3s ease;
+}
+
+.home-card:hover {
+  transform: scale(1.10); /* Scale to 105% of the original size */
+}
