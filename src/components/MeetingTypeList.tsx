@@ -8,12 +8,15 @@ import { useUser } from "@clerk/nextjs";
 import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 import { useToast } from "@/components/ui/use-toast";
 
+import Link from "next/link";
+
 const MeetingTypeList = () => {
 	const { toast } = useToast();
 	const [meetingState, setMeetingState] = useState<
 		"isScheduleMeeting" | "isJoiningMeeting" | "isIstantMeeting" | undefined
 	>();
 	const router = useRouter();
+	//getting the data of logged in user with the help of clerk
 	const { user } = useUser();
 	const client = useStreamVideoClient();
 	const [values, setValues] = useState({
@@ -29,8 +32,20 @@ const MeetingTypeList = () => {
 				toast({
 					title: "Date and time required for  meeting",
 				});
+				return (
+					<h1 className=" text-white  font-bold  ">Date and Time Required  while  creating a  meeting 
+					
+					</h1>
+					
+				)
+				
 			}
+			//generating the random meeting id while creating a new meeting 
+            //which will act as  meeting ID 
 			const id = crypto.randomUUID();
+		     
+			//initializing the new call object 
+			//It sets up the call configuration and prepares it for further actions, such as creating or retrieving a meeting.
 			const call = client.call("default", id);
 			if (!call) {
 				throw new Error("Unable to create  a call");
@@ -38,6 +53,7 @@ const MeetingTypeList = () => {
 			// Get  the starting time of call
 			const startsAt = values.dateTime.toISOString() || new Date(Date.now()).toISOString();
 			const description = values.description || "Start Instant Meeting";
+			//This methods create a new call or get the call which is already created
 			call.getOrCreate({
 				data: {
 					starts_at: startsAt,
