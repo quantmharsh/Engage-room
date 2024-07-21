@@ -2,7 +2,7 @@
 
 
 import { currentUser } from "@clerk/nextjs/server";
-//it is used for creatins server side client 
+//it is used for creating server side client 
 import { StreamClient } from "@stream-io/node-sdk";
 
 //it means code on this will only  run on server
