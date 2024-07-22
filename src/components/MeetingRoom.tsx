@@ -70,7 +70,7 @@ const MeetingRoom = () => {
 				</div>
 				{/* Div for rendering all the participants */}
 				<div
-					className={cn(" h-[calc(100vh-86)px] hidden  ml-2 ", {
+					className={cn(" h-[calc(100vh-86px)] hidden  ml-2 ", {
 						"show-block": showParticipants,
 					})}>
 					<CallParticipantsList onClose={() => setShowParticipants(false)} />
