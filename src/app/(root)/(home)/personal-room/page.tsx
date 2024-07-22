@@ -15,7 +15,7 @@ const Table=({title , description}:{title:string  ; description:string})=>(
     </div>
   
 )
-const page = () => {
+const PersonalRoom = () => {
 const user= useUser();
 const {toast}=useToast();
 const router= useRouter();
@@ -62,4 +62,4 @@ const startRoom=async()=>{
   )
 }
 
-export default page
+export default PersonalRoom
