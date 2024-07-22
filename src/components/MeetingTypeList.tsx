@@ -53,7 +53,7 @@ const MeetingTypeList = () => {
 				values.dateTime.toISOString() || new Date(Date.now()).toISOString();
 			const description = values.description || "Start Instant Meeting";
 			//This methods create a new call or get the call which is already created
-			call.getOrCreate({
+			await call.getOrCreate({
 				data: {
 					starts_at: startsAt,
 					custom: {

@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { LayoutIcon, User, User2, Users } from "lucide-react";
 import { Button } from "./ui/button";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import EndCallButton from "./EndCallButton";
 import Loader from "./Loader";
 
@@ -36,6 +36,7 @@ const MeetingRoom = () => {
 	 const { useCallCallingState}=useCallStateHooks();
 	 const  callingState= useCallCallingState();
 	 const [showParticipants, setShowParticipants] = useState(true);
+	 const  router= useRouter();
 	 if(callingState !== CallingState.JOINED)
 	 {
 		return <Loader/>
@@ -78,7 +79,7 @@ const MeetingRoom = () => {
 			</div>
 			{/* Video layout and  call controls */}
 			<div className=" fixed bottom-0  flex w-full justify-center items-center   gap-5  flex-wrap ">
-				<CallControls />
+				<CallControls onLeave={()=> router.push('/')} />
 				<DropdownMenu>
 					<div className="flex  items-center">
 						<DropdownMenuTrigger className="cursor-pointer px-4 py-2 bg-[#19232d] hover:bg-[#4c535b] rounded-2xl ">
