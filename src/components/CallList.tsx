@@ -13,6 +13,7 @@ const CallList = ({ type }: { type: "upcoming" | "ended" | "recordings" }) => {
 	const { endedCalls, upcomingCalls, isLoading, callRecordings } =
 		useGetCalls();
 		const {toast}= useToast();
+		console.log("Upcoming meetings" ,upcomingCalls);
 	//for handling Recordings we need  State which is of type callReording that we are getting from stream SDK
 	const [recordings, setRecordings] = useState<CallRecording[]>([]);
 	//using router to check on which page we currently are
@@ -64,6 +65,7 @@ const CallList = ({ type }: { type: "upcoming" | "ended" | "recordings" }) => {
 	}, [type , callRecordings])
 	
 	const calls = getCalls();
+	console.log("calls",calls);
 	const noCallMessage = getNoCallsMessage();
 	if(isLoading)
 	{
